@@ -12,16 +12,25 @@ class ActionGetWeather(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        city = tracker.latest_message['text']
-        weather_data = self.get_weather(city)
-        print(f"City: {city}")
-        print(f"Weather Data: {weather_data}")
+        # city = tracker.latest_message['text']
+        # weather_data = self.get_weather(city)
+        # print(f"City: {city}")
+        # print(f"Weather Data: {weather_data}")
 
-        if weather_data:
-            response = f"The weather in {city} is {weather_data['main']['temp']} C with {weather_data['weather'][0]['description']} "
+        city_slot = next(tracker.get_latest_entity_values("city"), None)
+        city = tracker.get_slot("city") or city_slot
+
+        if city:
+            weather_data = self.get_weather(city)
+            print(f"City: {city}")
+            print(f"Weather Data: {weather_data}")
+
+            if weather_data:
+                response = f"The weather in {city} is {weather_data['main']['temp']} C with {weather_data['weather'][0]['description']} "
+            else:
+                response = f"Sorry, I can't find the weather information, please try again"
         else:
-            response = f"Sorry, I can't find the weather data for {city}, please try again"
-
+            response = f"Sorry, I can't find the weather information, please try again"
         dispatcher.utter_message(text=response)
 
         return []
