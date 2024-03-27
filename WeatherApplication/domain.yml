@@ -26,8 +26,6 @@ responses:
   utter_goodbye:
   - text: "Bye"
 
-  utter_ask_weather:
-    - text: "Sure, for which city?"
 
 actions:
   - action_get_weather

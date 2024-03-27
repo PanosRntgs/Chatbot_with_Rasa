@@ -9,8 +9,6 @@ stories:
 
 - story: User asks for the weather in city
   steps:
-    - intent: ask_weather
-    - action: utter_ask_weather
     - intent: get_weather
     - entities:
         - city: Athens

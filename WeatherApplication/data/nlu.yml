@@ -31,34 +31,31 @@ nlu:
     - see you later
 
 
-- intent: ask_weather
-  examples: |
-    - How is the weather
-    - Can you make a weather forecast
-    - How is the weather like
-    - Could you tell me about the weather
-    - Tell me the weather
 
 - intent: get_weather
   examples: |
-    - [New York](city)
-    - [London](city)
-    - [Paris](city)
-    - [Athens](city)
-    - [Berlin](city)
-    - [San Francisco](city)
-    - [Madrid](city)
-    - [Lisbon](city)
-    - [Cairo](city)
-    - [Ankara](city)
-    - [Tehran](city)
-    - [Moscow](city)
-    - [Budapest](city)
-    - [Oslo](city)
-    - [Cape Town](city)
-    - [Sydney](city)
-    - [Sao Paolo](city)
-    - [Mexico City](city)
-    - [Toronto](city)
-    - [Seoul](city)
-    
+    - What is the weather forecast for [Tokyo](city) this weekend?
+    - Will it snow in [Moscow](city) tomorrow?
+    - I'm looking for the current temperature in [Los Angeles](city).
+    - Do I need an umbrella in [London](city) today?
+    - Show me the weather in [Cape Town](city) for the next 7 days.
+    - Is it hot in [Dubai](city) right now?
+    - What's the humidity like in [Sao Paulo](city)?
+    - Can you provide the weather update for [New Delhi](city)?
+    - I need the sunset time in [Reykjavik](city).
+    - Tell me the wind speed in [Chicago](city) currently.
+    - Is there a chance of rain in [Paris](city) this evening?
+    - What are the weather conditions in [Rome](city) on Monday?
+    - Are we expecting any storms in [Miami](city) this week?
+    - What's the weather prediction for [Beijing](city) during the holiday?
+    - Could you check if it will be cloudy in [Sydney](city) tomorrow?
+    - I'm wondering if it's sunny in [Athens](city) today?
+    - How cold will it be in [Oslo](city) next night?
+    - I'd like to know the air quality in [Mexico City](city).
+    - Will there be a heatwave in [Cairo](city) next month?
+    - Can you tell me if it's breezy in [Wellington](city) right now?
+
+
+- regex: \[(\w+)\]\(city\)
+  examples: |
+    - [$1](city) weather
